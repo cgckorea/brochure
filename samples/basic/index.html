@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"> <head>
+    <title>Ebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
+</head>
+<body>
+
+<div class="flipbook-viewport">
+    <div class="container">
+        <div class="flipbook">
+            <div style="background-image:url(pages/65.jpg)"></div>
+            <div style="background-image:url(pages/2.jpg)"></div>
+            <div style="background-image:url(pages/3.jpg)"></div>
+            <div style="background-image:url(pages/4.jpg)"></div>
+            <div style="background-image:url(pages/5.jpg)"></div>
+            <div style="background-image:url(pages/6.jpg)"></div>
+            <div style="background-image:url(pages/7.jpg)"></div>
+            <div style="background-image:url(pages/8.jpg)"></div>
+            <div style="background-image:url(pages/9.jpg)"></div>
+            <div style="background-image:url(pages/10.jpg)"></div>
+            <div style="background-image:url(pages/11.jpg)"></div>
+            <div style="background-image:url(pages/12.jpg)"></div>
+            <div style="background-image:url(pages/13.jpg)"></div>
+            <div style="background-image:url(pages/14.jpg)"></div>
+            <div style="background-image:url(pages/15.jpg)"></div>
+            <div style="background-image:url(pages/16.jpg)"></div>
+            <div style="background-image:url(pages/17.jpg)"></div>
+            <div style="background-image:url(pages/18.jpg)"></div>
+            <div style="background-image:url(pages/19.jpg)"></div>
+            <div style="background-image:url(pages/20.jpg)"></div>
+            <div style="background-image:url(pages/21.jpg)"></div>
+            <div style="background-image:url(pages/22.jpg)"></div>
+            <div style="background-image:url(pages/23.jpg)"></div>
+            <div style="background-image:url(pages/24.jpg)"></div>
+            <div style="background-image:url(pages/25.jpg)"></div>
+            <div style="background-image:url(pages/26.jpg)"></div>
+            <div style="background-image:url(pages/27.jpg)"></div>
+            <div style="background-image:url(pages/28.jpg)"></div>
+            <div style="background-image:url(pages/29.jpg)"></div>
+            <div style="background-image:url(pages/30.jpg)"></div>
+            <div style="background-image:url(pages/31.jpg)"></div>
+            <div style="background-image:url(pages/32.jpg)"></div>
+            <div style="background-image:url(pages/33.jpg)"></div>
+            <div style="background-image:url(pages/34.jpg)"></div>
+            <div style="background-image:url(pages/35.jpg)"></div>
+            <div style="background-image:url(pages/36.jpg)"></div>
+            <div style="background-image:url(pages/37.jpg)"></div>
+            <div style="background-image:url(pages/38.jpg)"></div>
+            <div style="background-image:url(pages/39.jpg)"></div>
+            <div style="background-image:url(pages/40.jpg)"></div>
+            <div style="background-image:url(pages/41.jpg)"></div>
+            <div style="background-image:url(pages/42.jpg)"></div>
+            <div style="background-image:url(pages/43.jpg)"></div>
+            <div style="background-image:url(pages/44.jpg)"></div>
+            <div style="background-image:url(pages/45.jpg)"></div>
+            <div style="background-image:url(pages/46.jpg)"></div>
+            <div style="background-image:url(pages/47.jpg)"></div>
+            <div style="background-image:url(pages/48.jpg)"></div>
+            <div style="background-image:url(pages/49.jpg)"></div>
+            <div style="background-image:url(pages/50.jpg)"></div>
+            <div style="background-image:url(pages/51.jpg)"></div>
+            <div style="background-image:url(pages/52.jpg)"></div>
+            <div style="background-image:url(pages/53.jpg)"></div>
+            <div style="background-image:url(pages/54.jpg)"></div>
+            <div style="background-image:url(pages/55.jpg)"></div>
+            <div style="background-image:url(pages/56.jpg)"></div>
+            <div style="background-image:url(pages/57.jpg)"></div>
+            <div style="background-image:url(pages/58.jpg)"></div>
+            <div style="background-image:url(pages/59.jpg)"></div>
+            <div style="background-image:url(pages/60.jpg)"></div>
+            <div style="background-image:url(pages/61.jpg)"></div>
+            <div style="background-image:url(pages/62.jpg)"></div>
+            <div style="background-image:url(pages/63.jpg)"></div>
+            <div style="background-image:url(pages/64.jpg)"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+function loadApp() {
+
+    var flipbook = $('.flipbook');
+
+    // 1. 책의 초기 크기 설정
+    var w = 922;
+    var h = 600;
+
+    // 2. Turn.js 실행
+    flipbook.turn({
+            width: w,
+            height: h,
+            elevation: 50,
+            gradients: true,
+            autoCenter: true
+    });
+
+    // 3. 반응형 리사이징 함수 추가 (여백을 줄이고 화면에 꽉 차게)
+    function resizeBook() {
+        var winWidth = $(window).width();
+        var winHeight = $(window).height();
+        
+        // 화면의 95%까지 사용하도록 설정 (여백 최소화)
+        var availableWidth = winWidth * 0.95;
+        var availableHeight = winHeight * 0.95;
+        
+        // 원본 비율 계산 (922 / 600)
+        var ratio = w / h;
+        
+        // 새 크기 계산
+        var newWidth = availableWidth;
+        var newHeight = newWidth / ratio;
+        
+        // 만약 계산된 높이가 화면보다 크다면, 높이 기준으로 다시 계산
+        if (newHeight > availableHeight) {
+            newHeight = availableHeight;
+            newWidth = newHeight * ratio;
+        }
+        
+        // Turn.js에 새로운 크기 적용
+        flipbook.turn('size', newWidth, newHeight);
+    }
+
+    // 4. 브라우저 크기 변경 시 책 크기도 변경
+    $(window).resize(function() {
+        resizeBook();
+    });
+
+    // 5. 초기 로딩 시 한번 실행
+    resizeBook();
+}
+
+// Load the HTML4 version if there's not CSS transform
+yepnope({
+    test : Modernizr.csstransforms,
+    yep: ['../../lib/turn.js'],
+    nope: ['../../lib/turn.html4.min.js'],
+    both: ['css/basic.css'],
+    complete: loadApp
+});
+
+</script>
+
+</body>
+</html>
